@@ -1,0 +1,33 @@
+<div>
+  <%= image_tag @user.get_profile_image(100,100) %>
+  <h6>name</h6>
+  <p><%= @user.name %></p>
+  <h6>introduction</h6>
+  <p><%= @user.introduction %></p>
+  <p><%= link_to "編集", edit_user_path %></p>
+</div>
+
+<h2>New book</h2>
+  <%= form_with model: @book do |f| %>
+   <h6>Title</h6>
+     <%= f.text_field :title %>
+   <h6>Opinion</h6>
+     <%= f.text_area :body %>
+     <br>
+   <%= f.submit 'Create Book' %>
+   <% end %>
+
+
+<h2>Books</h2>
+<p>Title</p>
+<p>Opinion</p>
+<% @books.each do |book| %>
+<div>
+  <%= link_to book_path(book.id) do %>
+   <%= image_tag book.get_image %>
+  <% end %>
+  <%= link_to book.title, book_path(book.id) %>
+  <%= book.body %>
+
+</div>
+<% end %>
