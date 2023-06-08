@@ -6,6 +6,10 @@
 <p><%= @book.body %></p>
 
 <% if @book.user == current_user %>
+  <button type="button" class="btn btn-outline-success">
   <%= link_to "Edit", edit_book_path(@book.id) %>
+  </button>
+  <button type="button" class="btn btn-outline-danger">
   <%= link_to "Destroy", book_path(@book.id), method: :delete, "data-confirm" => "本当に消しますか?" %>
+  </button>
 <% end %>

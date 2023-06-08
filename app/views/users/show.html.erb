@@ -1,41 +1,36 @@
-
-
 <div class="container">
  <div class="row">
+
+
   <div class="col-lg-4">
-   <h3>User info</h3>
-   <%= image_tag @user.get_profile_image(100,100) %>
-    <table class="table table-striped">
-    <thead>
-     <th>name</th>
-
-     <th><%= @user.name %></th>
-    </thead>
-
-    <tbody>
-    <td>introduction</td>
-    <td><%= @user.introduction %></td>
-    </tbody>
-    </table>
-    <button type="button" class="btn btn-outline-primary btn-block">
-    <%= link_to edit_user_path do %>
-      <i class="fa-solid fa-user-gear"></i>
-    <% end %>
-    </button>
-
-
-    <h2>New book</h2>
-    <%= form_with model: @book do |f| %>
-    <h6>Title</h6>
-    <%= f.text_field :title %>
-    <h6>Opinion</h6>
-    <%= f.text_area :body %>
+   <div class="user info">
     <br>
-    <%= f.submit 'Create Book' %>
-   <% end %>
+      <h3>User info</h3>
+      <%= image_tag @user.get_profile_image(100,100) %>
+      <table class="table table-striped">
+       <thead>
+        <th>name</th>
+        <th><%= @user.name %></th>
+       </thead>
+
+       <tbody>
+        <td>introduction</td>
+        <td><%= @user.introduction %></td>
+       </tbody>
+      </table>
+      <button type="button" class="btn btn-outline-primary btn-block">
+        <%= link_to edit_user_path do %>
+      <i class="fa-solid fa-user-gear"></i>
+        <% end %>
+      </button>
+     </div>
+
+<%= render 'users/list', user:@user %>
+
   </div>
 
   <div class="col-lg-8">
+   <br>
    <h3>Books</h3>
     <table class="table table-striped">
      <thead>
