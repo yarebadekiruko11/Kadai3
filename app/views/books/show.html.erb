@@ -1,15 +1,32 @@
+<div class="col-log-8">
 <h2>Book detail</h2>
+<tabel class="table">
+ <tbody>
+   <tr>
 
-<p>画像</p>
-<p>name</p>
-<p><%= @book.title %></p>
-<p><%= @book.body %></p>
+
+<td><%= image_tag @book.user.get_profile_image(100,100) %>
+<%= @book.user.name %>
+
+</td>
+<td><%= @book.title %></td>
+<td><%= @book.body %></td>
+
 
 <% if @book.user == current_user %>
+  <td>
   <button type="button" class="btn btn-outline-success">
   <%= link_to "Edit", edit_book_path(@book.id) %>
   </button>
+  </td>
+  <td>
   <button type="button" class="btn btn-outline-danger">
   <%= link_to "Destroy", book_path(@book.id), method: :delete, "data-confirm" => "本当に消しますか?" %>
   </button>
+  </td>
 <% end %>
+</tr>
+ </tbody>
+
+</tabel>
+</div>

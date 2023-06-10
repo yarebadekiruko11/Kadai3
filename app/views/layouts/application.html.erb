@@ -25,29 +25,60 @@
 
       <% if user_signed_in? %>
         <li>
-          <%= link_to "Home", user_path(current_user.id), class: 'nav-link text-light' %>
+
+          <%= link_to current_user, class: 'nav-link text-light' do %>
+          <i class="fa-solid fa-house-chimney" style="color: #f8f9fc;"></i> Home
+
+          <% end %>
+
+
+          <!--<i class="fa-solid fa-house-chimney" style="color: #f8f9fc;"></i>-->
+
+        <!--<= link_to "Home", current_user, class: 'nav-link text-light' %>-->
+
+
         </li>
         <li>
-          <%= link_to "Users", users_path, class: 'nav-link text-light' %>
+          <%= link_to users_path, class: 'nav-link text-light' do %>
+          <i class="fa-solid fa-users" style="color: #e7eaee;"></i> Users
+          <% end %>
         </li>
         <li>
-          <%= link_to "Books", books_path, class: 'nav-link text-light' %>
+          <%= link_to books_path, class: 'nav-link text-light' do %>
+          <i class="fa-solid fa-book-open" style="color: #edeff3;"></i> Books
+          <% end %>
         </li>
         <li>
-          <%= link_to "Log out", destroy_user_session_path, method: :delete, class: 'nav-link text-light' %>
+          <%= link_to destroy_user_session_path, method: :delete, class: 'nav-link text-light' do %>
+          <i class="fa-solid fa-right-from-bracket" style="color: #e7eaee;"></i> Log out
+          <% end %>
         </li>
+
       <% else %>
         <li>
-          <%= link_to "Home", root_path, class: 'nav-link text-light' %>
+
+          <%= link_to root_path, class: 'nav-link text-light' do %>
+          <i class="fa-solid fa-house-chimney" style="color: #f8f9fc;"></i> Home
+          <% end %>
         </li>
         <li>
-          <%= link_to "About", about_path, class: 'nav-link text-light' %>
+
+          <%= link_to about_path, class: 'nav-link text-light' do %>
+          <i class="fa-solid fa-paperclip" style="color: #f0f2f5;"></i> About
+          <% end %>
         </li>
         <li>
-          <%= link_to "+ Sign up", new_user_registration_path, class: 'nav-link text-light' %>
+
+          <%= link_to new_user_registration_path, class: 'nav-link text-light' do %>
+
+          <i class="fa-solid fa-user-plus" style="color: #e2e6ee;"></i> Sign up
+          <% end %>
         </li>
         <li>
-          <%= link_to "Log in", new_user_session_path, class: 'nav-link text-light' %>
+
+          <%= link_to new_user_session_path, class: 'nav-link text-light' do %>
+          <i class="fa-solid fa-right-to-bracket" style="color: #f5f7fa;"></i> Log in
+          <% end %>
         </li>
       <% end %>
       </ul>
@@ -65,8 +96,12 @@
     </main>
 
     <footer>
-      <div class="container">
+      <div class="container mt-5">
+        <div class="row">
+          <div class="mx-auto">
         <p class="text-center bg-light">CopyRight Infratop.inc</p>
+          </div>
+        </div>
       </div>
 
     </footer>
