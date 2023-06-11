@@ -2,6 +2,13 @@
  <%= flash[:notice] %>
 </div>
 
+<div class="container">
+ <div class="row">
+  <div class="col-lg-4">
+
+<%= render 'users/list', user:@user, book:@booknew %>
+
+  </div>
 
 <div class="col-log-8">
 <h2>Book detail</h2>
@@ -10,11 +17,15 @@
    <tr>
 
 
-<td><%= image_tag @book.user.get_profile_image(100,100) %>
+<td><%= link_to user_path(@user.id) do %>
+<%= image_tag @book.user.get_profile_image(100,100) %>
 <%= @book.user.name %>
-
+<% end %>
 </td>
-<td><%= @book.title %></td>
+<td><%= link_to @book_path do %>
+<%= @book.title %>
+<% end %>
+</td>
 <td><%= @book.body %></td>
 
 
@@ -34,4 +45,7 @@
  </tbody>
 
 </tabel>
+</div>
+
+</div>
 </div>

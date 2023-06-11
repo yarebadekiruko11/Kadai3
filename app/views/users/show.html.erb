@@ -8,30 +8,8 @@
 
 
   <div class="col-lg-4">
-   <div class="user info">
-    <br>
-      <h3>User info</h3>
-      <%= image_tag @user.get_profile_image(100,100) %>
-      <table class="table table-striped">
-       <thead>
-        <th>name</th>
-        <th><%= @user.name %></th>
-       </thead>
 
-       <tbody>
-        <td>introduction</td>
-        <td><%= @user.introduction %></td>
-       </tbody>
-      </table>
-
-      <%= link_to edit_user_path, class: 'btn btn-outline-primary btn-block' do %>
-
-      <i class="fa-solid fa-user-gear"></i>
-      <% end %>
-
-     </div>
-
-<%= render 'users/list', user:@user %>
+<%= render 'users/list', user:@user, book:@book %>
 
   </div>
 
