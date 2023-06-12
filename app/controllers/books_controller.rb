@@ -38,16 +38,18 @@ before_action :is_matching_login_user, only: [:edit, :update]
   end
 
   def edit
-
-
     @book = Book.find(params[:id])
   end
 
   def update
-    book = Book.find(params[:id])
-    book.update(book_params)
+    @book = Book.find(params[:id])
+    if @book.update(book_params)
     flash[:notice] = "You have update book successfully."
-    redirect_to book_path(book.id)
+    redirect_to book_path(@book.id)
+    else
+    
+    render :edit
+    end
   end
 
   def destroy
